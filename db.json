@@ -1,0 +1,19 @@
+{
+  "todos": [
+    {
+      "title": "Learning to swim",
+      "done": false,
+      "id": 4
+    },
+    {
+      "title": "Hello React App with Json Server!",
+      "done": false,
+      "id": 6
+    },
+    {
+      "title": "Add",
+      "done": false,
+      "id": 7
+    }
+  ]
+}
