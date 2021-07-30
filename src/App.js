@@ -17,10 +17,17 @@ class App extends Component {
   }
 
   removeTodo = (id) => {
-    // let updatedTodos = this.state.todos.filter((todo) => {
-    //   return id !== todo.id;
-    // });
-    // this.setState({ todos: updatedTodos });
+    axios
+      .delete(`http://localhost:8000/todos/${id}`)
+      .then((response) => {
+        let updatedTodos = this.state.todos.filter((todo) => {
+          return id !== todo.id;
+        });
+
+        this.setState({ todos: updatedTodos });
+        return response;
+      })
+      .catch((error) => console.log(error));
   };
 
   fetchData = () => {
@@ -37,7 +44,8 @@ class App extends Component {
       .post('http://localhost:8000/todos', data)
       .then((response) => {
         this.setState({ newTodo: '' });
-        return response.data;
+        let newTodos = [response.data, ...this.state.todos];
+        this.setState({ todos: newTodos });
       })
       .catch((error) => console.log(error));
   };
@@ -48,9 +56,25 @@ class App extends Component {
 
   handleSubmit = (event) => {
     event.preventDefault();
-    let data = { title: this.state.newTodo };
+
+    if (this.state.newTodo === '') {
+      return;
+    }
+
+    let data = { title: this.state.newTodo, done: false };
 
     this.saveData(data);
+  };
+
+  toggleTodoDone = (id) => {
+    let todo = this.state.todos.find((todo) => todo.id === id);
+
+    let data = { done: !todo.done };
+
+    axios
+      .patch(`http://localhost:8000/todos/${id}`, data)
+      .then((respone) => console.log(respone))
+      .catch((error) => console.log(error));
   };
 
   componentDidMount() {
@@ -69,7 +93,11 @@ class App extends Component {
           handleSubmit={this.handleSubmit}
         />
 
-        <TodoList todos={this.state.todos} removeTodo={this.removeTodo} />
+        <TodoList
+          todos={this.state.todos}
+          toggleTodoDone={this.toggleTodoDone}
+          removeTodo={this.removeTodo}
+        />
       </div>
     );
   }

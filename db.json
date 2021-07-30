@@ -1,19 +1,14 @@
 {
   "todos": [
     {
-      "title": "Learning to swim",
+      "title": "Second todo",
       "done": false,
-      "id": 4
+      "id": 2
     },
     {
-      "title": "Hello React App with Json Server!",
+      "title": "test todo",
       "done": false,
-      "id": 6
-    },
-    {
-      "title": "Add",
-      "done": false,
-      "id": 7
+      "id": 3
     }
   ]
 }

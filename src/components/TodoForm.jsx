@@ -1,4 +1,5 @@
 import React from 'react';
+import { Button } from '@material-ui/core';
 
 const TodoForm = ({ newTodo, handleChange, handleSubmit }) => {
   return (
@@ -11,9 +12,15 @@ const TodoForm = ({ newTodo, handleChange, handleSubmit }) => {
           value={newTodo}
           onChange={handleChange}
         />
-        <button className='btn btn-primary' type='submit'>
+        {/* <Button variant='contained'>Default</Button> */}
+        <Button
+          className='btn btn-primary'
+          variant='contained'
+          color='primary'
+          type='submit'
+        >
           Add
-        </button>
+        </Button>
       </form>
     </div>
   );
