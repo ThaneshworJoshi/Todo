@@ -1,13 +1,31 @@
 .todo-container {
   padding: 1rem;
-  margin-top: 1rem;
-
-  border: 1px solid black;
+  margin-top: 1rem 10px;
+  border-bottom: 1px solid black;
+  text-align: center;
 }
 
-input[type='checkbox'] {
+label {
+  font-size: 50px;
+  margin-left: 10px;
+}
+
+input[type="text"] {
+  width: 50%;
+  padding: 12px 20px;
+  margin: 8px 10px;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+  font-size: 24px;
+}
+
+input[type="checkbox"] {
   display: inline;
   width: auto;
+  transform: scale(1.5);
+  margin-right: 10px;
 }
 ul {
   margin: 0;
@@ -31,5 +49,39 @@ li {
 }
 
 .delete-todo {
-  padding-left: 3rem;
+  margin-left: 10px;
+}
+
+/* add button */
+.add-btn {
+  padding: 8px 11px;
+}
+
+/* all done button */
+.all-done {
+  margin: 8px 10px;
+  display: inline-block;
+  outline: none;
+  cursor: pointer;
+  font-size: 16px;
+  line-height: 20px;
+  font-weight: 600;
+  border-radius: 8px;
+  padding: 14px 24px;
+  border: none;
+  transition: box-shadow 0.2s ease 0s, -ms-transform 0.1s ease 0s,
+    -webkit-transform 0.1s ease 0s, transform 0.1s ease 0s;
+  background: linear-gradient(
+    to right,
+    rgb(230, 30, 77) 0%,
+    rgb(227, 28, 95) 50%,
+    rgb(215, 4, 102) 100%
+  );
+  color: #fff;
+}
+
+/* todo lists */
+.todo-list {
+  display: flex;
+  margin: 8px 10px;
 }

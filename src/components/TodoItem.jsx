@@ -1,4 +1,4 @@
-import React from 'react';
+import React from "react";
 
 const TodoItem = ({ todo, removeTodo, toggleTodoDone }) => {
   const handleClick = () => {
@@ -10,11 +10,14 @@ const TodoItem = ({ todo, removeTodo, toggleTodoDone }) => {
   };
 
   return (
-    <div>
-      <input type='checkbox' checked={todo.done} onChange={handelChange} />
-      {todo.done ? <del>{todo.title}</del> : todo.title}
-
-      <button onClick={handleClick}>X</button>
+    <div className="todo-list">
+      <div>
+        <input type="checkbox" checked={todo.done} onChange={handelChange} />
+        {todo.done ? <del>{todo.title}</del> : todo.title}
+      </div>
+      <div className="delete-todo">
+        <button onClick={handleClick}>X</button>
+      </div>
     </div>
   );
 };
